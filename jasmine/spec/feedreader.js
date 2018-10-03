@@ -70,14 +70,13 @@ $(function() {
           */
           it('menu changes visibiliy when menu icon clicked', function() {
             $('a.menu-icon-list').click(); //This is the first click of the hamburger menu
-              expect($('body').class).not.toMatch('menu-hidden');
+              expect($('body').class).not.toContain('menu-hidden');
             $('a.menu-icon.list').click(); //This is the second click of the hamburger menu
               expect($('body').class).toBeNull;
           });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
-      let feed = $('div.feed a.entry-link article.entry');
         /* TODO: Write a test that ensures when the loadFeed
          * function is called and completes its work, there is at least
          * a single .entry element within the .feed container.
@@ -85,7 +84,7 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
          it('there is a .entry element in the .feed container', function(done) {
-           expect(feed).toBeDefined();
+           expect($('div.feed a.entry-link article.entry')).toBeDefined();
            done();
          });
        });
